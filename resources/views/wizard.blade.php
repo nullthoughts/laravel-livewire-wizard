@@ -1,3 +1,3 @@
 <div>
-    @livewire($currentStepName, $currentStepState, key($currentStepName))
+    @livewire($currentStepName, ['models' => $models], key($currentStepName))
 </div>

@@ -2,32 +2,30 @@
 
 namespace Spatie\LivewireWizard\Components;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\Mechanisms\ComponentRegistry;
+use ReflectionAttribute;
+use ReflectionClass;
+use ReflectionObject;
+use Spatie\LivewireWizard\Attributes\ModelProperty;
 use Spatie\LivewireWizard\Components\Concerns\MountsWizard;
 use Spatie\LivewireWizard\Exceptions\InvalidStepComponent;
 use Spatie\LivewireWizard\Exceptions\NoNextStep;
 use Spatie\LivewireWizard\Exceptions\NoPreviousStep;
 use Spatie\LivewireWizard\Exceptions\NoStepsReturned;
 use Spatie\LivewireWizard\Exceptions\StepDoesNotExist;
-use Spatie\LivewireWizard\Support\State;
 
 abstract class WizardComponent extends Component
 {
     use MountsWizard;
 
-    public array $allStepState = [];
     public ?string $currentStepName = null;
 
     /** @return <int, class-string<StepComponent> */
     abstract public function steps(): array;
-
-    public function initialState(): ?array
-    {
-        return null;
-    }
 
     public function stepNames(): Collection
     {
@@ -55,7 +53,7 @@ abstract class WizardComponent extends Component
     }
 
     #[On('previousStep')]
-    public function previousStep(array $currentStepState)
+    public function previousStep()
     {
         $previousStep = collect($this->stepNames())
             ->before(fn (string $step) => $step === $this->currentStepName);
@@ -64,11 +62,11 @@ abstract class WizardComponent extends Component
             throw NoPreviousStep::make(self::class, $this->currentStepName);
         }
 
-        $this->showStep($previousStep, $currentStepState);
+        $this->showStep($previousStep);
     }
 
     #[On('nextStep')]
-    public function nextStep(array $currentStepState)
+    public function nextStep()
     {
         $nextStep = collect($this->stepNames())
             ->after(fn (string $step) => $step === $this->currentStepName);
@@ -77,62 +75,31 @@ abstract class WizardComponent extends Component
             throw NoNextStep::make(self::class, $this->currentStepName);
         }
 
-        $this->showStep($nextStep, $currentStepState);
+        $this->showStep($nextStep);
     }
 
     #[On('showStep')]
-    public function showStep($toStepName, array $currentStepState = [])
+    public function showStep($toStepName)
     {
-        if ($this->currentStepName) {
-            $this->setStepState($this->currentStepName, $currentStepState);
+        if (! $this->stepNames()->contains($toStepName)) {
+            throw StepDoesNotExist::doesNotHaveState($toStepName);
         }
-
+    
         $this->currentStepName = $toStepName;
-    }
-
-    public function setStepState(string $step, array $state = []): void
-    {
-        if (! $this->stepNames()->contains($step)) {
-            throw StepDoesNotExist::doesNotHaveState($step);
-        }
-
-        $this->allStepState[$step] = $state;
-    }
-
-    public function getCurrentStepState(?string $step = null): array
-    {
-        $stepName = $step ?? $this->currentStepName;
-
-        $stepName = class_exists($stepName)
-            ? app(ComponentRegistry::class)->getName($stepName)
-            : $stepName;
-
-        throw_if(
-            ! $this->stepNames()->contains($stepName),
-            StepDoesNotExist::stepNotFound($stepName)
-        );
-
-        return array_merge(
-            $this->allStepState[$stepName] ?? [],
-            [
-                'allStepNames' => $this->stepNames()->toArray(),
-                'allStepsState' => $this->allStepState,
-                'stateClassName' => $this->stateClass(),
-                'wizardClassName' => static::class,
-            ],
-        );
     }
 
     public function render()
     {
-        $currentStepState = $this->getCurrentStepState();
+        $class = new ReflectionClass($this);
 
-        return view('livewire-wizard::wizard', compact('currentStepState'));
-    }
+        $models = collect($class->getMethods())->filter(function($method) {
+            return $method->getAttributes(ModelProperty::class);
+        })->mapWithKeys(function ($method) {
+            $property = $method->name;
 
-    /** @return class-string<State> */
-    public function stateClass(): string
-    {
-        return State::class;
+            return [$property => $this->{$property}];
+        })->all();
+
+        return view('livewire-wizard::wizard', compact('models'));
     }
 }
