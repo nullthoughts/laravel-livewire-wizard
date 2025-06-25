@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\LivewireWizard\Exceptions;
+namespace NullThoughts\LivewireWizard\Exceptions;
 
 use Exception;
-use Spatie\LivewireWizard\Support\State;
+use NullThoughts\LivewireWizard\Support\State;
 
 class InvalidStateClassName extends Exception
 {

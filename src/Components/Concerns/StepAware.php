@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\LivewireWizard\Components\Concerns;
+namespace NullThoughts\LivewireWizard\Components\Concerns;
 
 use Livewire\Mechanisms\ComponentRegistry;
-use Spatie\LivewireWizard\Enums\StepStatus;
-use Spatie\LivewireWizard\Support\Step;
+use NullThoughts\LivewireWizard\Enums\StepStatus;
+use NullThoughts\LivewireWizard\Support\Step;
 
 trait StepAware
 {

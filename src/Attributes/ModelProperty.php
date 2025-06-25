@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LivewireWizard\Attributes;
+namespace NullThoughts\LivewireWizard\Attributes;
 
 use Attribute;
 use Livewire\Features\SupportAttributes\Attribute as LivewireAttribute;

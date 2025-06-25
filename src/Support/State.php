@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LivewireWizard\Support;
+namespace NullThoughts\LivewireWizard\Support;
 
 use Illuminate\Support\Arr;
 

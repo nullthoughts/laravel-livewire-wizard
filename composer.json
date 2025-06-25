@@ -6,7 +6,7 @@
         "laravel",
         "laravel-livewire-wizard"
     ],
-    "homepage": "https://github.com/spatie/laravel-livewire-wizard",
+    "homepage": "https://github.com/nullthoughts/laravel-livewire-wizard",
     "license": "MIT",
     "authors": [
         {
@@ -39,12 +39,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\LivewireWizard\\": "src"
+            "NullThoughts\\LivewireWizard\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\LivewireWizard\\Tests\\": "tests"
+            "NullThoughts\\LivewireWizard\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -61,7 +61,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\LivewireWizard\\WizardServiceProvider"
+                "NullThoughts\\LivewireWizard\\WizardServiceProvider"
             ]
         }
     },

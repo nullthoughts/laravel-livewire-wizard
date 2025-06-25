@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\LivewireWizard\Support;
+namespace NullThoughts\LivewireWizard\Support;
 
 use Illuminate\Support\Arr;
-use Spatie\LivewireWizard\Enums\StepStatus;
+use NullThoughts\LivewireWizard\Enums\StepStatus;
 
 class Step
 {

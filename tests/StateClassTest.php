@@ -1,12 +1,12 @@
 <?php
 
 use Livewire\Livewire;
-use Spatie\LivewireWizard\Tests\TestSupport\Components\Steps\FirstStepComponent;
-use Spatie\LivewireWizard\Tests\TestSupport\Components\Steps\SecondStepComponent;
-use Spatie\LivewireWizard\Tests\TestSupport\Components\WizardWithCustomStateObject;
-use Spatie\LivewireWizard\Tests\TestSupport\Components\WizardWithInitialState;
-use Spatie\LivewireWizard\Tests\TestSupport\Components\WizardWithInvalidCustomStateObject;
-use Spatie\LivewireWizard\Tests\TestSupport\State\CustomState;
+use NullThoughts\LivewireWizard\Tests\TestSupport\Components\Steps\FirstStepComponent;
+use NullThoughts\LivewireWizard\Tests\TestSupport\Components\Steps\SecondStepComponent;
+use NullThoughts\LivewireWizard\Tests\TestSupport\Components\WizardWithCustomStateObject;
+use NullThoughts\LivewireWizard\Tests\TestSupport\Components\WizardWithInitialState;
+use NullThoughts\LivewireWizard\Tests\TestSupport\Components\WizardWithInvalidCustomStateObject;
+use NullThoughts\LivewireWizard\Tests\TestSupport\State\CustomState;
 
 it('can mount a wizard with a custom state class', function () {
     Livewire::test(WizardWithCustomStateObject::class)->assertSuccessful();

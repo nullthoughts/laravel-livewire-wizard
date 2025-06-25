@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LivewireWizard\Components\Concerns;
+namespace NullThoughts\LivewireWizard\Components\Concerns;
 
 trait MountsWizard
 {

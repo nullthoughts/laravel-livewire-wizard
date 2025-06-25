@@ -2,14 +2,14 @@
 
 use Livewire\Livewire;
 use Livewire\Mechanisms\ComponentRegistry;
-use Spatie\LivewireWizard\Exceptions\NoNextStep;
-use Spatie\LivewireWizard\Exceptions\NoPreviousStep;
-use Spatie\LivewireWizard\Exceptions\StepDoesNotExist;
-use Spatie\LivewireWizard\Tests\TestSupport\Components\MyWizardComponent;
-use Spatie\LivewireWizard\Tests\TestSupport\Components\Steps\FirstStepComponent;
-use Spatie\LivewireWizard\Tests\TestSupport\Components\Steps\SecondStepComponent;
-use Spatie\LivewireWizard\Tests\TestSupport\Components\Steps\ThirdStepComponent;
-use Spatie\LivewireWizard\Tests\TestSupport\Components\WizardWithInvalidStepComponent;
+use NullThoughts\LivewireWizard\Exceptions\NoNextStep;
+use NullThoughts\LivewireWizard\Exceptions\NoPreviousStep;
+use NullThoughts\LivewireWizard\Exceptions\StepDoesNotExist;
+use NullThoughts\LivewireWizard\Tests\TestSupport\Components\MyWizardComponent;
+use NullThoughts\LivewireWizard\Tests\TestSupport\Components\Steps\FirstStepComponent;
+use NullThoughts\LivewireWizard\Tests\TestSupport\Components\Steps\SecondStepComponent;
+use NullThoughts\LivewireWizard\Tests\TestSupport\Components\Steps\ThirdStepComponent;
+use NullThoughts\LivewireWizard\Tests\TestSupport\Components\WizardWithInvalidStepComponent;
 
 use function Spatie\Snapshots\assertMatchesHtmlSnapshot;
 

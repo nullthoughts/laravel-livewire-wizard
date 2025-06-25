@@ -1,8 +1,8 @@
 <?php
 
 use Livewire\Livewire;
-use Spatie\LivewireWizard\Tests\TestSupport\Components\Steps\FirstStepComponent;
-use Spatie\LivewireWizard\Tests\TestSupport\Components\WizardWithInitialState;
+use NullThoughts\LivewireWizard\Tests\TestSupport\Components\Steps\FirstStepComponent;
+use NullThoughts\LivewireWizard\Tests\TestSupport\Components\WizardWithInitialState;
 
 beforeEach(function () {
     $this->wizard = Livewire::test(WizardWithInitialState::class, [

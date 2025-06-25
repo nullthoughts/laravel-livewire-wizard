@@ -1,9 +1,9 @@
 <?php
 
 use Livewire\Livewire;
-use Spatie\LivewireWizard\Exceptions\StepDoesNotExist;
-use Spatie\LivewireWizard\Tests\TestSupport\Components\MyWizardComponent;
-use Spatie\LivewireWizard\Tests\TestSupport\Components\Steps\SecondStepComponent;
+use NullThoughts\LivewireWizard\Exceptions\StepDoesNotExist;
+use NullThoughts\LivewireWizard\Tests\TestSupport\Components\MyWizardComponent;
+use NullThoughts\LivewireWizard\Tests\TestSupport\Components\Steps\SecondStepComponent;
 
 beforeEach(function () {
     $this->wizard = Livewire::test(MyWizardComponent::class);

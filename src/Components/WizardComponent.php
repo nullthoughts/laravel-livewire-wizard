@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LivewireWizard\Components;
+namespace NullThoughts\LivewireWizard\Components;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
@@ -10,13 +10,13 @@ use Livewire\Mechanisms\ComponentRegistry;
 use ReflectionAttribute;
 use ReflectionClass;
 use ReflectionObject;
-use Spatie\LivewireWizard\Attributes\ModelProperty;
-use Spatie\LivewireWizard\Components\Concerns\MountsWizard;
-use Spatie\LivewireWizard\Exceptions\InvalidStepComponent;
-use Spatie\LivewireWizard\Exceptions\NoNextStep;
-use Spatie\LivewireWizard\Exceptions\NoPreviousStep;
-use Spatie\LivewireWizard\Exceptions\NoStepsReturned;
-use Spatie\LivewireWizard\Exceptions\StepDoesNotExist;
+use NullThoughts\LivewireWizard\Attributes\ModelProperty;
+use NullThoughts\LivewireWizard\Components\Concerns\MountsWizard;
+use NullThoughts\LivewireWizard\Exceptions\InvalidStepComponent;
+use NullThoughts\LivewireWizard\Exceptions\NoNextStep;
+use NullThoughts\LivewireWizard\Exceptions\NoPreviousStep;
+use NullThoughts\LivewireWizard\Exceptions\NoStepsReturned;
+use NullThoughts\LivewireWizard\Exceptions\StepDoesNotExist;
 
 abstract class WizardComponent extends Component
 {

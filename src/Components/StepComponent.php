@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\LivewireWizard\Components;
+namespace NullThoughts\LivewireWizard\Components;
 
 use Livewire\Component;
 use Livewire\Mechanisms\ComponentRegistry;
-use Spatie\LivewireWizard\Components\Concerns\StepAware;
+use NullThoughts\LivewireWizard\Components\Concerns\StepAware;
 
 abstract class StepComponent extends Component
 {

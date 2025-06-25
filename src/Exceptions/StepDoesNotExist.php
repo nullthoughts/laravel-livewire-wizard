@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LivewireWizard\Exceptions;
+namespace NullThoughts\LivewireWizard\Exceptions;
 
 use Exception;
 

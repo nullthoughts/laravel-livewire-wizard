@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LivewireWizard\Enums;
+namespace NullThoughts\LivewireWizard\Enums;
 
 enum StepStatus: string
 {
