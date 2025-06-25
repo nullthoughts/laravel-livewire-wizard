@@ -11,12 +11,10 @@ use NullThoughts\LivewireWizard\Support\StepSynth;
 
 class WizardServiceProvider extends PackageServiceProvider
 {
-    public ?string $viewNamespace = 'nullthoughts-wizard';
-
     public function configurePackage(Package $package): void
     {
         $package
-            ->name('laravel-livewire-wizard')
+            ->name('nullthoughts-wizard')
             ->hasViews();
     }
 
