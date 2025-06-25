@@ -4,8 +4,8 @@ namespace NullThoughts\LivewireWizard;
 
 use Livewire\Features\SupportTesting\Testable;
 use Livewire\Livewire;
-use NullThoughts\LaravelPackageTools\Package;
-use NullThoughts\LaravelPackageTools\PackageServiceProvider;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 use NullThoughts\LivewireWizard\Support\EventEmitter;
 use NullThoughts\LivewireWizard\Support\StepSynth;
 
