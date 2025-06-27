@@ -100,6 +100,6 @@ abstract class WizardComponent extends Component
             return [$property => $this->{$property}];
         })->all();
 
-        return view('livewire-wizard::wizard', compact('models'));
+        return view('nullthoughts-wizard::wizard', compact('models'));
     }
 }
